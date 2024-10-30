@@ -1,0 +1,72 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" class="sidenav" opened>
+        <mat-toolbar class="sidenav-header">
+
+            <span class="app-name">{{ 'APP_NAME' | translate }}</span>
+            <div class="btn-trans">
+                <button mat-button [matMenuTriggerFor]="languageMenu">
+                    <mat-icon>language</mat-icon>
+                </button>
+                <mat-menu #languageMenu="matMenu">
+                    <button mat-menu-item (click)="switchLanguage('en')">English</button>
+                    <button mat-menu-item (click)="switchLanguage('ar')">العربية</button>
+                </mat-menu>
+            </div>
+        </mat-toolbar>
+
+        <mat-nav-list #sidelist>
+            <a mat-list-item routerLink="/dashboard">
+                <mat-icon>home</mat-icon>
+                <span>{{ 'DASHBOARD' | translate }}</span>
+            </a>
+            <a mat-list-item routerLink="/plans">
+                <mat-icon>list_alt</mat-icon>
+                <span>{{ 'PLANS' | translate }}</span>
+            </a>
+            <a mat-list-item routerLink="/operations">
+                <mat-icon>work</mat-icon>
+                <span>{{ 'OPERATIONS' | translate }}</span>
+            </a>
+            <a mat-list-item routerLink="/impact-analysis" routerLinkActive="active">
+                <mat-icon>assessment</mat-icon>
+                <span>{{ 'IMPACT_ANALYSIS' | translate }}</span>
+            </a>
+            <a mat-list-item routerLink="/scenarios">
+                <mat-icon>school</mat-icon>
+                <span>{{ 'SCENARIOS' | translate }}</span>
+            </a>
+            <a mat-list-item routerLink="/organization-data">
+                <mat-icon>business</mat-icon>
+                <span>{{ 'ORGANIZATION_DATA' | translate }}</span>
+            </a>
+            <a mat-list-item routerLink="/users">
+                <mat-icon>people</mat-icon>
+                <span>{{ 'USERS' | translate }}</span>
+            </a>
+            <a mat-list-item routerLink="/reports">
+                <mat-icon>bar_chart</mat-icon>
+                <span>{{ 'REPORTS' | translate }}</span>
+            </a>
+            <a mat-list-item routerLink="/institutions">
+                <mat-icon>apartment</mat-icon>
+                <span>{{ 'INSTITUTIONS' | translate }}</span>
+            </a>
+            <a mat-list-item routerLink="/awareness-training">
+                <mat-icon>psychology</mat-icon>
+                <span>{{ 'AWARENESS_TRAINING' | translate }}</span>
+            </a>
+            <a mat-list-item routerLink="/announcements">
+                <mat-icon>campaign</mat-icon>
+                <span>{{ 'ANNOUNCEMENTS' | translate }}</span>
+            </a>
+            <a mat-list-item routerLink="/task-management">
+                <mat-icon>assignment</mat-icon>
+                <span>{{ 'TASK_MANAGEMENT' | translate }}</span>
+            </a>
+            <a mat-list-item routerLink="/settings">
+                <mat-icon>settings</mat-icon>
+                <span>{{ 'SETTINGS' | translate }}</span>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+</mat-sidenav-container>

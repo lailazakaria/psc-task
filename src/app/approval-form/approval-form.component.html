@@ -1,0 +1,78 @@
+<div class="header-section">
+    <div class="steps">
+        <div class="step" *ngFor="let step of steps; let i = index">
+            <mat-icon [ngClass]="{ 'active-step': i <= currentStepIndex }">check_circle</mat-icon>
+            <span>{{ step | translate }}</span>
+            <mat-divider *ngIf="i < steps.length - 1" class="step-divider"></mat-divider>
+        </div>
+    </div>
+</div>
+
+<div class="form-container">
+    <h2>{{ 'APP_TITLE' | translate }}</h2>
+    <p>{{ 'APPROVAL_FORM_DESCRIPTION' | translate }}</p>
+    <form [formGroup]="approvalForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            <!-- Author Field -->
+            <mat-form-field appearance="outline">
+                <mat-label>{{ 'AUTHOR' | translate }}</mat-label>
+                <mat-select formControlName="author">
+                    <mat-option *ngFor="let author of authors" [value]="author">{{ author }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <!-- Reference Field -->
+            <mat-form-field appearance="outline">
+                <mat-label>{{ 'REFERENCE' | translate }}</mat-label>
+                <mat-select formControlName="reference">
+                    <mat-option *ngFor="let reference of references" [value]="reference">{{ reference }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            <!-- Approver Field -->
+            <mat-form-field appearance="outline">
+                <mat-label>{{ 'APPROVER' | translate }}</mat-label>
+                <mat-select formControlName="approver">
+                    <mat-option *ngFor="let approver of approvers" [value]="approver">{{ approver }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <!-- Status Field -->
+            <mat-form-field appearance="outline">
+                <mat-label>{{ 'STATUS' | translate }}</mat-label>
+                <mat-select formControlName="statusApprover">
+                    <mat-option *ngFor="let status of statusesApprovers" [value]="status">{{ status }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            <!-- End Review Date Field -->
+            <mat-form-field appearance="outline">
+                <mat-label>{{ 'END_REVIEW_DATE' | translate }}</mat-label>
+                <input matInput [matDatepicker]="picker2" formControlName="endReviewDate">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+
+            <!-- Next Review Date Field -->
+            <mat-form-field appearance="outline">
+                <mat-label>{{ 'NEXT_REVIEW_DATE' | translate }}</mat-label>
+                <input matInput [matDatepicker]="picker1" formControlName="nextReviewDate">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <!-- Form Buttons -->
+        <div class="form-buttons">
+            <button mat-raised-button color="primary" type="submit">{{ 'SAVE' | translate }}</button>
+            <div>
+                <button mat-raised-button type="button" (click)="onSaveDraft()">{{ 'SAVE_DRAFT' | translate }}</button>
+                <button mat-button type="button" (click)="onCancel()">{{ 'CANCEL' | translate }}</button>
+            </div>
+        </div>
+    </form>
+</div>
