@@ -12,9 +12,10 @@ export class SidebarComponent {
   activateImpactAnalysisForm() {
     this.formActivated.emit();
   }
+
   constructor(private translate: TranslateService) {
     this.translate.addLangs(['en', 'ar']);
-    this.translate.setDefaultLang('en');
+    this.translate.setDefaultLang('ar');
   }
 
   switchLanguage(lang: string) {

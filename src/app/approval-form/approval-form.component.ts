@@ -12,17 +12,10 @@ import Swal from 'sweetalert2';
 })
 export class ApprovalFormComponent {
   approvalForm: FormGroup;
-  authors = ['Author 1', 'Author 2', 'Author 3'];
-  references = ['Reference 1', 'Reference 2', 'Reference 3'];
+  authors = ['Amir', 'Yousef', 'Ahmad'];
+  references = ['Amir', 'Yousef', 'Ahmad'];
+  approvers = ['Amir', 'Yousef', 'Ahmad'];
   statusesApprovers = ['Approved', 'Pending', 'Rejected'];
-  approvers = ['Approver 1', 'Approver 2', 'Approver 3'];
-
-  steps = [
-    'تفاصيل تحليل اثر الاعمال',
-    'معايير المعتمدة لتحليل اثر الاعمال',
-    'الموافقة على التحليل المختلف',
-  ];
-  currentStepIndex = 2; // Highlight up to the last completed step
 
   constructor(private fb: FormBuilder, private formService: FormService) {
     this.approvalForm = this.fb.group({
@@ -79,6 +72,7 @@ export class ApprovalFormComponent {
     // Trigger saveForm with 'submitted' status when submitting
     this.saveForm('submitted');
     this.approvalForm.reset();
+    localStorage.clear();
   }
 
   onSaveDraft() {

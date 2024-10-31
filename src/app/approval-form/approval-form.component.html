@@ -1,9 +1,24 @@
 <div class="header-section">
     <div class="steps">
-        <div class="step" *ngFor="let step of steps; let i = index">
-            <mat-icon [ngClass]="{ 'active-step': i <= currentStepIndex }">check_circle</mat-icon>
-            <span>{{ step | translate }}</span>
-            <mat-divider *ngIf="i < steps.length - 1" class="step-divider"></mat-divider>
+        <div class="step completed">
+            <div class="icon-container">
+                <mat-icon>description</mat-icon>
+            </div>
+            <span>{{ 'DETAILS_ANALYSIS' | translate }}</span>
+        </div>
+        <div class="divider-line"></div>
+        <div class="step completed">
+            <div class="icon-container">
+                <mat-icon>search</mat-icon>
+            </div>
+            <span>{{ 'CRITERIA_IMPORTANCE' | translate }}</span>
+        </div>
+        <div class="divider-line"></div>
+        <div class="step">
+            <div class="icon-container">
+                <mat-icon>check_circle</mat-icon>
+            </div>
+            <span>{{ 'APPROVAL_ADDED' | translate }}</span>
         </div>
     </div>
 </div>
@@ -48,7 +63,7 @@
             </mat-form-field>
         </div>
 
-        <div class="form-row">
+        <div class="form-row calender">
             <!-- End Review Date Field -->
             <mat-form-field appearance="outline">
                 <mat-label>{{ 'END_REVIEW_DATE' | translate }}</mat-label>

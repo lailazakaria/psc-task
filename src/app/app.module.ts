@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
-import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
@@ -49,6 +49,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatNativeDateModule,
     HttpClientModule,
     MatMenuModule,
+
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
